@@ -282,8 +282,10 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
-import User from "./models/sign.js";
-import Todo from "./models/Todo.js";
+// import User from "./models/sign.js";
+// import Todo from "./models/Todo.js";
+import User from "./sign.js";
+import Todo from "./Todo.js";
 
 dotenv.config();
 
