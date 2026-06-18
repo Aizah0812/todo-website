@@ -33,28 +33,28 @@ if (loginForm) {
     }
 
     try {
-      const res = await fetch("http://127.0.0.1:5000/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const res = await fetch(
+        "https://taskflow-backend-sthf.onrender.com/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
         },
-        body: JSON.stringify({ email, password }),
-      });
+      );
 
       const data = await res.json();
       alert(data.message);
 
-    
+      if (res.ok) {
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("userEmail", data.user.email);
+        localStorage.setItem("currentUser", data.user.name);
 
-    if (res.ok) {
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("userEmail", data.user.email);
-      localStorage.setItem("currentUser", data.user.name);
-
-      window.location.href = "index.html";
-    }
-
+        window.location.href = "index.html";
+      }
     } catch (error) {
       console.log("Login error:", error);
       alert("Login failed. Please try again.");
@@ -89,14 +89,16 @@ if (signupForm) {
     }
 
     try {
-      const res = await fetch("http://127.0.0.1:5000/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, password }),
-      });
-
+     const res = await fetch(
+       "https://taskflow-backend-sthf.onrender.com/signup",
+       {
+         method: "POST",
+         headers: {
+           "Content-Type": "application/json",
+         },
+         body: JSON.stringify({ name, email, password }),
+       },
+     );
       const data = await res.json();
       alert(data.message);
 
