@@ -811,7 +811,7 @@ const markAllPendingBtn = document.getElementById("markAllPendingBtn");
 const exportTasksBtn = document.getElementById("exportTasksBtn");
 const importTasksInput = document.getElementById("importTasksInput");
 
-const API_BASE_URL = "http://localhost:5000";
+const API_BASE_URL = "https://taskflow-backend-sthf.onrender.com";
 
 let currentFilter = "all";
 let currentSearch = "";
